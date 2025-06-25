@@ -1,5 +1,5 @@
-let WIDTH = 400;
-let HEIGHT = 300;
+let WIDTH = 800;
+let HEIGHT = 600;
 
 const config = {
     type: Phaser.AUTO,
@@ -24,8 +24,18 @@ function preload() {
 }
 
 function create() {
-    ball = this.add.sprite(WIDTH / 2, HEIGHT / 2, "ball"); // x, y, and the ball "key"
-    ball.setDisplaySize(ballSize, ballSize); // width, height
+        ball = this.add.sprite(WIDTH / 2, HEIGHT / 2, "ball"); // x, y, and the ball "key"
+            ball.setDisplaySize(ballSize, ballSize); // width, height
+
+                // Make the ball interactive
+                    ball.setInteractive();
+
+                        // On click, decrease size by 10%
+                            ball.on('pointerdown', () => {
+                                    ballSize *= 0.9;
+                                            ball.setDisplaySize(ballSize, ballSize);
+                                                });
+                                                
 }
 
 function update() {
